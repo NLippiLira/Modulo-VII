@@ -1,0 +1,189 @@
+/* styles.css – Estilos modernos y limpios para tu portafolio */
+
+:root {
+  --color-bg:    #f5f7fa;
+  --color-100:   #ffffff;
+  --color-200:   #e4e9f0;
+  --color-primary:   #4a90e2;
+  --color-secondary: #50e3c2;
+  --color-accent:    #f5a623;
+  --color-text:      #333333;
+  --color-muted:     #666666;
+
+  --font-base:       'Inter', sans-serif;
+  --font-heading:    'Poppins', sans-serif;
+
+  --spacing: 1rem;
+  --radius: 0.5rem;
+  --transition: 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Container central */
+.container {
+  max-width: 960px;
+  padding: var(--spacing);
+  margin: 0 auto;
+}
+
+/* Encabezado y navegación */
+header {
+  background: var(--color-primary);
+  color: var(--color-100);
+  padding: var(--spacing) 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+nav a {
+  color: var(--color-100);
+  margin: 0 var(--spacing);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 0.25rem;
+  transition: color var(--transition);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0; left: 50%;
+  background: var(--color-accent);
+  transition: width var(--transition), left var(--transition);
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Listado de tarjetas */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing);
+  margin-top: var(--spacing);
+}
+
+.card {
+  background: var(--color-100);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  flex: 1 1 calc(33.333% - 2*var(--spacing));
+  padding: var(--spacing);
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* Formularios */
+form {
+  background: var(--color-100);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: grid;
+  gap: var(--spacing);
+  margin-top: var(--spacing);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-200);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+button {
+  background: var(--color-accent);
+  color: var(--color-100);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+button:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  padding: var(--spacing) 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-200);
+  margin-top: var(--spacing*2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - var(--spacing));
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    display: block;
+    margin: var(--spacing) 0;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+}

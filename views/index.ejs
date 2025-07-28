@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+
+<ul>
+  <% bootcamps.forEach(b => { %>
+    <li>
+      <a href="/bootcamps/<%= b.id %>"><%= b.name %></a>
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('partials/footer') %>
